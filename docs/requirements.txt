@@ -1,0 +1,16 @@
+pyenchant
+sphinx >= 5.2.1
+sphinx-autoapi
+sphinx-autobuild
+sphinx-copybutton
+sphinx-rtd-theme
+sphinxcontrib-katex
+sphinxcontrib-bibtex
+sphinxcontrib-spelling
+sphinx-autodoc-typehints >= 1.19.2
+IPython
+ipykernel
+pandoc
+myst-nb
+docutils
+matplotlib

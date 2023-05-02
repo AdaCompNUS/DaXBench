@@ -1,0 +1,974 @@
+#usda 1.0
+(
+    customLayerData = {
+        dictionary MovieCaptureSettings = {
+            int batch_count = 1
+            string camera_name = "/OmniverseKit_Persp"
+            int capture_every_nth_frames = 20
+            bool capture_every_nth_frames_checked = 0
+            int capture_frame_end = 100
+            int capture_frame_start = 0
+            string capture_name = "Capture"
+            string capture_range = "Custom Range - Frames"
+            double capture_time_end = 10
+            double capture_time_start = 0
+            string exr_compression_method = "zips"
+            int fps = 24
+            bool hdr_for_exr_checked = 0
+            bool hdr_for_exr_visible = 0
+            int iray_pathtrace_spp = 1
+            int iray_subframes_per_frame = 32
+            string movie_type = "Sequence"
+            string output_format = ".png"
+            string output_path = "/home/summer/Documents/Kit/shared/capture"
+            bool overwrite_existing_frame_checked = 0
+            bool pathtrace_mb_checked = 1
+            double pathtrace_mb_frame_shutter_close = 0.5
+            double pathtrace_mb_frame_shutter_open = 0
+            int pathtrace_mb_subframes = 64
+            int pathtrace_spp_per_iteration_mgpu = 1
+            int pathtrace_spp_per_subframe = 1
+            string queue_instance = "localhost Queue"
+            int realtime_settle_latency = 0
+            string render_preset = "PathTracing"
+            bool render_style = 1
+            bool renumber_negtive_frames_checked = 0
+            int resolution_aspect_ratio_selected = 0
+            string resolution_aspect_ratios = '["16:9", "4:3"]'
+            int resolution_height = 1080
+            string resolution_type = "Custom"
+            bool resolution_w_h_linked = 1
+            int resolution_width = 1920
+            int run_n_frames_before_start = 20
+            bool run_n_frames_before_start_checked = 0
+            bool save_alpha_checked = 0
+            bool skip_upload_to_s3 = 0
+            int start_delay_seconds = 10
+            double sunstudy_end = 18
+            int sunstudy_movie_minutes = 1
+            int sunstudy_movie_seconds = 1
+            double sunstudy_start = 6
+            string task_comment = ""
+            string task_priority = ""
+            string task_type = "create-render"
+            bool upload_to_s3 = 0
+        }
+        dictionary cameraSettings = {
+            dictionary Front = {
+                double3 position = (0, 0, 50000)
+                double radius = 500
+            }
+            dictionary Perspective = {
+                double3 position = (-31, 93, 61)
+                double3 target = (69.49107967504825, 55.409917240921175, 103.65593257577086)
+            }
+            dictionary Right = {
+                double3 position = (-50000, 0, 0)
+                double radius = 500
+            }
+            dictionary Top = {
+                double3 position = (0, 50000, 0)
+                double radius = 500
+            }
+            string boundCamera = "/World/camera"
+        }
+        dictionary omni_layer = {
+            string authoring_layer = "./water_bowl.usda"
+            dictionary muteness = {
+            }
+        }
+        dictionary renderSettings = {
+            float3 "rtx:debugView:pixelDebug:textColor" = (0, 1e18, 0)
+            int "rtx:externalFrameCounter" = 10
+            float3 "rtx:fog:fogColor" = (0.75, 0.75, 0.75)
+            bool "rtx:indirectDiffuse:enabled" = 1
+            float3 "rtx:post:backgroundZeroAlpha:backgroundDefaultColor" = (0, 0, 0)
+            float3 "rtx:post:colorcorr:contrast" = (1, 1, 1)
+            float3 "rtx:post:colorcorr:gain" = (1, 1, 1)
+            float3 "rtx:post:colorcorr:gamma" = (1, 1, 1)
+            float3 "rtx:post:colorcorr:offset" = (0, 0, 0)
+            float3 "rtx:post:colorcorr:saturation" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:blackpoint" = (0, 0, 0)
+            float3 "rtx:post:colorgrad:contrast" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:gain" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:gamma" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:lift" = (0, 0, 0)
+            float3 "rtx:post:colorgrad:multiply" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:offset" = (0, 0, 0)
+            float3 "rtx:post:colorgrad:whitepoint" = (1, 1, 1)
+            float3 "rtx:post:lensDistortion:lensFocalLengthArray" = (10, 30, 50)
+            float3 "rtx:post:lensFlares:anisoFlareFalloffX" = (450, 475, 500)
+            float3 "rtx:post:lensFlares:anisoFlareFalloffY" = (10, 10, 10)
+            float3 "rtx:post:lensFlares:cutoffPoint" = (2, 2, 2)
+            double "rtx:post:lensFlares:flareScale" = 0.075
+            float3 "rtx:post:lensFlares:haloFlareFalloff" = (10, 10, 10)
+            float3 "rtx:post:lensFlares:haloFlareRadius" = (75, 75, 75)
+            float3 "rtx:post:lensFlares:isotropicFlareFalloff" = (50, 50, 50)
+            float3 "rtx:post:tonemap:whitepoint" = (1, 1, 1)
+            float3 "rtx:raytracing:inscattering:singleScatteringAlbedo" = (0.9, 0.9, 0.9)
+            float3 "rtx:raytracing:inscattering:transmittanceColor" = (0.5, 0.5, 0.5)
+            string "rtx:rendermode" = "PathTracing"
+            float3 "rtx:sceneDb:ambientLightColor" = (0, 0, 0)
+        }
+    }
+    defaultPrim = "World"
+    endTimeCode = 5
+    metersPerUnit = 0.01
+    startTimeCode = 1
+    timeCodesPerSecond = 24
+    upAxis = "Y"
+)
+
+def Xform "World"
+{
+    def Scope "Looks"
+    {
+        def Material "Water_Ocean_Green_Reef"
+        {
+            token outputs:mdl:displacement.connect = </World/Looks/Water_Ocean_Green_Reef/Shader.outputs:out>
+            token outputs:mdl:surface.connect = </World/Looks/Water_Ocean_Green_Reef/Shader.outputs:out>
+            token outputs:mdl:volume.connect = </World/Looks/Water_Ocean_Green_Reef/Shader.outputs:out>
+
+            def Shader "Shader"
+            {
+                uniform token info:implementationSource = "sourceAsset"
+                uniform asset info:mdl:sourceAsset = @http://omniverse-content-production.s3.us-west-2.amazonaws.com/Materials/vMaterials_2/Liquids/Water_Blue_Ocean_Perlinwaves.mdl@
+                uniform token info:mdl:sourceAsset:subIdentifier = "Water_Ocean_Green_Reef"
+                float inputs:ior = 1.333 (
+                    customData = {
+                        float default = 1.333
+                        dictionary range = {
+                            float max = 3
+                            float min = 0
+                        }
+                    }
+                    displayGroup = "Appearance"
+                    displayName = "Water IOR"
+                    doc = "Index of Refraction"
+                    hidden = false
+                )
+                float inputs:level_progressive_v_motion = 0 (
+                    customData = {
+                        float default = 0
+                        dictionary soft_range = {
+                            float max = 1
+                            float min = 0
+                        }
+                    }
+                    displayGroup = "Appearance:Procedural Waves"
+                    displayName = "Waves Time (Motion)"
+                    doc = "Offsets the waves to create motion. Best to be combined with animation of the 'Waves Phase' Parameter"
+                    hidden = false
+                )
+                float inputs:texture_rotate = 0 (
+                    customData = {
+                        float default = 0
+                        dictionary soft_range = {
+                            float max = 360
+                            float min = 0
+                        }
+                    }
+                    displayGroup = "Transform"
+                    displayName = "Rotate"
+                    doc = "Rotates angle of the texture in degrees"
+                    hidden = false
+                )
+                float2 inputs:texture_scale = (1, 1) (
+                    customData = {
+                        float2 default = (1, 1)
+                    }
+                    displayGroup = "Transform"
+                    displayName = "Scale"
+                    doc = "Larger numbers increase the size"
+                    hidden = false
+                )
+                float2 inputs:texture_translate = (0, 0) (
+                    customData = {
+                        float2 default = (0, 0)
+                    }
+                    displayGroup = "Transform"
+                    displayName = "Translate"
+                    doc = "Controls the position of the texture"
+                    hidden = false
+                )
+                int inputs:uv_space_index = 0 (
+                    customData = {
+                        int default = 0
+                    }
+                    displayGroup = "Advanced"
+                    displayName = "UV Space Index"
+                    doc = "Use selected UV space for material"
+                    hidden = false
+                )
+                float inputs:water_absorbtion = 0.743 (
+                    customData = {
+                        float default = 0.743
+                        dictionary range = {
+                            float max = 1
+                            float min = 0
+                        }
+                    }
+                    displayGroup = "Appearance"
+                    displayName = "Water Absorption"
+                    doc = "Higher values will cause light to get absorbed in the water, causing a darker appearance as light travels through long distances."
+                    hidden = false
+                )
+                float inputs:water_scattering_amount = 0.245 (
+                    customData = {
+                        float default = 0.245
+                        dictionary soft_range = {
+                            float max = 1
+                            float min = 0
+                        }
+                    }
+                    displayGroup = "Appearance"
+                    displayName = "Water Scattering"
+                    hidden = false
+                )
+                float inputs:water_tint = 0 (
+                    customData = {
+                        float default = 0
+                        dictionary range = {
+                            float max = 1
+                            float min = 0
+                        }
+                    }
+                    displayGroup = "Appearance"
+                    displayName = "Water Tint"
+                    doc = "At 0.0 the water is a more greenish, at 1.0 a more blueish color"
+                    hidden = false
+                )
+                float inputs:waves_phase = 0 (
+                    customData = {
+                        float default = 0
+                        dictionary soft_range = {
+                            float max = 1
+                            float min = 0
+                        }
+                    }
+                    displayGroup = "Appearance:Procedural Waves"
+                    displayName = "Waves Phase"
+                    doc = "Changes the phase of the waves (Controls in fact the 4th dimension of the procedural wave function)"
+                    hidden = false
+                )
+                float inputs:waves_roughness = 0.85 (
+                    customData = {
+                        float default = 0.85
+                        dictionary range = {
+                            float max = 1
+                            float min = 0
+                        }
+                    }
+                    displayGroup = "Appearance:Procedural Waves"
+                    displayName = "Waves Roughness"
+                    doc = "A higher value will introduce more fine waves"
+                    hidden = false
+                )
+                float inputs:waves_strength = 1 (
+                    customData = {
+                        float default = 1
+                        dictionary soft_range = {
+                            float max = 1
+                            float min = 0
+                        }
+                    }
+                    displayGroup = "Appearance:Procedural Waves"
+                    displayName = "Waves Strength"
+                    doc = "Adjusts the intensity of the waves"
+                    hidden = false
+                )
+                float inputs:waves_stretch = 0.75 (
+                    customData = {
+                        float default = 0.75
+                        dictionary range = {
+                            float max = 1
+                            float min = 0
+                        }
+                    }
+                    displayGroup = "Appearance:Procedural Waves"
+                    displayName = "Waves Stretch"
+                    doc = "Amount which will cause finer waves to get stretched"
+                    hidden = false
+                )
+                token outputs:out (
+                    renderType = "material"
+                )
+            }
+        }
+    }
+
+    def "bowl2" (
+        instanceable = false
+        delete payload = @../../pyrender/models/bowl_1/model_update.obj@
+        prepend payload = @/home/summer/Documents/Github/pax_dev/daxbench/core/engine/pyrender/models/bowl_1/model_update.obj@
+    )
+    {
+        quatf xformOp:orient = (1, 0, 0, 0)
+        quatf xformOp:orient.timeSamples = {
+            0: (1, 4.782608e-13, 4.782608e-13, 4.782608e-13),
+            1: (1, 9.565215e-13, 9.565215e-13, 9.565215e-13),
+            2: (1, 1.4347822e-12, 1.4347822e-12, 1.4347822e-12),
+            3: (1, 1.9130429e-12, 1.9130429e-12, 1.9130429e-12),
+            4: (1, 2.3913035e-12, 2.3913035e-12, 2.3913035e-12),
+        }
+        float3 xformOp:scale = (0.009, 0.008, 0.009)
+        double3 xformOp:translate = (0.501078188419342, -1.5543122344752192e-15, 0.5717858076095581)
+        double3 xformOp:translate.timeSamples = {
+            0: (0.5, 0.08999999612569809, 0.30000001192092896),
+            1: (0.5, 0.08999999612569809, 0.30000001192092896),
+            2: (0.5, 0.08999999612569809, 0.30000001192092896),
+            3: (0.5, 0.08999999612569809, 0.30000001192092896),
+            4: (0.5, 0.08999999612569809, 0.30000001192092896),
+        }
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "bowl1" (
+        instanceable = false
+        delete payload = @../../pyrender/models/bowl_1/model_update.obj@
+        prepend payload = @/home/summer/Documents/Github/pax_dev/daxbench/core/engine/pyrender/models/bowl_1/model_update.obj@
+    )
+    {
+        quatf xformOp:orient = (1, 0, 0, 0)
+        quatf xformOp:orient.timeSamples = {
+            0: (1, 4.782608e-13, 4.782608e-13, 4.782608e-13),
+            1: (1, 9.565215e-13, 9.565215e-13, 9.565215e-13),
+            2: (1, 1.4347822e-12, 1.4347822e-12, 1.4347822e-12),
+            3: (1, 1.9130429e-12, 1.9130429e-12, 1.9130429e-12),
+            4: (1, 2.3913035e-12, 2.3913035e-12, 2.3913035e-12),
+        }
+        float3 xformOp:scale = (0.009, 0.008, 0.009)
+        double3 xformOp:translate = (0.501078188419342, -1.5543122344752192e-15, 0.5717858076095581)
+        double3 xformOp:translate.timeSamples = {
+            0: (0.5138731002807617, 0.20000000298023224, 0.4970413148403168),
+            1: (0.5138731002807617, 0.20000000298023224, 0.4970413148403168),
+            2: (0.5138731002807617, 0.20000000298023224, 0.4970413148403168),
+            3: (0.5138731002807617, 0.20000000298023224, 0.4970413148403168),
+            4: (0.5138731002807617, 0.20000000298023224, 0.4970413148403168),
+        }
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def Camera "camera"
+    {
+        float focalLength = 70
+        custom uniform vector3d omni:kit:centerOfInterest = (0, 0, -2.598076211353316)
+        float3 xformOp:rotateXYZ = (153.55452, -47.55884, 180)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (-1.5, 1.5, -1.5)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def PhysxParticleSystem "ParticleSystem_bp" (
+        prepend apiSchemas = ["PhysxParticleIsosurfaceAPI"]
+    )
+    {
+        rel material:binding = </World/Looks/Water_Ocean_Green_Reef> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        float particleContactOffset = 0.005
+        bool particleSystemEnabled = 0
+        token visibility = "inherited"
+
+        def AnimationData "animationData"
+        {
+            uniform int64[] visibility:x:inTangentTimes = [0]
+            uniform token[] visibility:x:inTangentTypes = ["step"]
+            uniform double[] visibility:x:inTangentValues = [0]
+            uniform int64[] visibility:x:outTangentTimes = [0]
+            uniform token[] visibility:x:outTangentTypes = ["step"]
+            uniform double[] visibility:x:outTangentValues = [0]
+            uniform bool[] visibility:x:tangentBrokens = [0]
+            uniform bool[] visibility:x:tangentWeighteds = [0]
+            uniform int64[] visibility:x:times = [11760000]
+            uniform double[] visibility:x:values = [0]
+        }
+    }
+}
+
+def Xform "Environment"
+{
+    int ground:size = 1400
+    string ground:type = "On"
+    double3 xformOp:rotateXYZ = (0, 0, 0)
+    double3 xformOp:scale = (1, 1, 1)
+    double3 xformOp:translate = (0, 0, 0)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+
+    def DomeLight "Sky" (
+        prepend apiSchemas = ["ShapingAPI"]
+    )
+    {
+        float colorTemperature = 6250
+        bool enableColorTemperature = 1
+        float exposure = 9
+        float intensity = 1
+        float shaping:cone:angle = 180
+        float shaping:cone:softness
+        float shaping:focus
+        color3f shaping:focusTint
+        asset shaping:ies:file
+        asset texture:file = @https://omniverse-content-production.s3.us-west-2.amazonaws.com/Assets/Scenes/Templates/Default/SubUSDs/textures/CarLight_512x256.hdr@
+        token texture:format = "latlong"
+        token visibility = "inherited"
+        double3 xformOp:rotateXYZ = (-90, 0, 0)
+        double3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 305, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def DistantLight "DistantLight" (
+        prepend apiSchemas = ["ShapingAPI"]
+    )
+    {
+        float angle = 2.5
+        float colorTemperature = 7250
+        bool enableColorTemperature = 1
+        float exposure = 10
+        float intensity = 1
+        float shaping:cone:angle = 180
+        float shaping:cone:softness
+        float shaping:focus
+        color3f shaping:focusTint
+        asset shaping:ies:file
+        token visibility = "inherited"
+        double3 xformOp:rotateXYZ = (-90, 0, -15)
+        double3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 305, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+
+    def Scope "Looks"
+    {
+        def Material "Grid"
+        {
+            token outputs:mdl:displacement.connect = </Environment/Looks/Grid/Shader.outputs:out>
+            token outputs:mdl:surface.connect = </Environment/Looks/Grid/Shader.outputs:out>
+            token outputs:mdl:volume.connect = </Environment/Looks/Grid/Shader.outputs:out>
+
+            def Shader "Shader"
+            {
+                uniform token info:implementationSource = "sourceAsset"
+                uniform asset info:mdl:sourceAsset = @OmniPBR.mdl@
+                uniform token info:mdl:sourceAsset:subIdentifier = "OmniPBR"
+                float inputs:albedo_add = 0 (
+                    customData = {
+                        float default = 0
+                        dictionary soft_range = {
+                            float max = 1
+                            float min = -1
+                        }
+                    }
+                    displayGroup = "Albedo"
+                    displayName = "Albedo Add"
+                    doc = "Adds a constant value to the diffuse color "
+                    hidden = false
+                )
+                float inputs:albedo_brightness = 0.52 (
+                    customData = {
+                        float default = 1
+                        dictionary soft_range = {
+                            float max = 1
+                            float min = 0
+                        }
+                    }
+                    displayGroup = "Albedo"
+                    displayName = "Albedo Brightness"
+                    doc = "Multiplier for the diffuse color "
+                    hidden = false
+                )
+                float inputs:albedo_desaturation = 1 (
+                    customData = {
+                        float default = 0
+                        dictionary soft_range = {
+                            float max = 1
+                            float min = 0
+                        }
+                    }
+                    displayGroup = "Albedo"
+                    displayName = "Albedo Desaturation"
+                    doc = "Desaturates the diffuse color"
+                    hidden = false
+                )
+                asset inputs:ao_texture = @@ (
+                    colorSpace = "raw"
+                    customData = {
+                        asset default = @@
+                    }
+                    displayGroup = "AO"
+                    displayName = "Ambient Occlusion Map"
+                    doc = "The ambient occlusion texture for the material"
+                    hidden = false
+                )
+                float inputs:ao_to_diffuse = 0 (
+                    customData = {
+                        float default = 0
+                        dictionary range = {
+                            float max = 1
+                            float min = 0
+                        }
+                    }
+                    displayGroup = "AO"
+                    displayName = "AO to diffuse"
+                    doc = "Controls the amount of ambient occlusion multiplied against the diffuse color channel"
+                    hidden = false
+                )
+                float inputs:bump_factor = 1 (
+                    customData = {
+                        float default = 1
+                        dictionary soft_range = {
+                            float max = 1
+                            float min = 0
+                        }
+                    }
+                    displayGroup = "Normal"
+                    displayName = "Normal Strength"
+                    doc = "Strength of normal map"
+                    hidden = false
+                )
+                float inputs:detail_bump_factor = 0.3 (
+                    customData = {
+                        float default = 0.3
+                        dictionary soft_range = {
+                            float max = 1
+                            float min = 0
+                        }
+                    }
+                    displayGroup = "Normal"
+                    displayName = "Detail Normal Strength"
+                    doc = "Strength of the detail normal"
+                    hidden = false
+                )
+                asset inputs:detail_normalmap_texture = @@ (
+                    colorSpace = "raw"
+                    customData = {
+                        asset default = @@
+                    }
+                    displayGroup = "Normal"
+                    displayName = "Detail Normal Map"
+                    hidden = false
+                )
+                float inputs:detail_texture_rotate = 0 (
+                    customData = {
+                        float default = 0
+                    }
+                    displayGroup = "UV"
+                    displayName = "Detail Texture Rotate"
+                    doc = "Rotates angle of the detail texture in degrees."
+                    hidden = false
+                )
+                float2 inputs:detail_texture_scale = (1, 1) (
+                    customData = {
+                        float2 default = (1, 1)
+                    }
+                    displayGroup = "UV"
+                    displayName = "Detail Texture Tiling"
+                    doc = "Controls the repetition of the detail texture."
+                    hidden = false
+                )
+                float2 inputs:detail_texture_translate = (0, 0) (
+                    customData = {
+                        float2 default = (0, 0)
+                    }
+                    displayGroup = "UV"
+                    displayName = "Detail Texture Translate"
+                    doc = "Controls the position of the detail texture."
+                    hidden = false
+                )
+                color3f inputs:diffuse_color_constant = (0.2, 0.2, 0.2) (
+                    customData = {
+                        float3 default = (0.2, 0.2, 0.2)
+                    }
+                    displayGroup = "Albedo"
+                    displayName = "Albedo Color"
+                    doc = "This is the albedo base color"
+                    hidden = false
+                )
+                asset inputs:diffuse_texture = @https://omniverse-content-production.s3.us-west-2.amazonaws.com/Assets/Scenes/Templates/Default/SubUSDs/textures/ov_uv_grids_basecolor_1024.png@ (
+                    colorSpace = "sRGB"
+                    customData = {
+                        asset default = @@
+                    }
+                    displayGroup = "Albedo"
+                    displayName = "Albedo Map"
+                    hidden = false
+                )
+                color3f inputs:diffuse_tint = (1, 1, 1) (
+                    customData = {
+                        float3 default = (1, 1, 1)
+                    }
+                    displayGroup = "Albedo"
+                    displayName = "Color Tint"
+                    doc = "When enabled, this color value is multiplied over the final albedo color"
+                    hidden = false
+                )
+                color3f inputs:emissive_color = (1, 0.1, 0.1) (
+                    customData = {
+                        float3 default = (1, 0.1, 0.1)
+                    }
+                    displayGroup = "Emissive"
+                    displayName = "Emissive Color"
+                    doc = "The emission color"
+                    hidden = false
+                )
+                asset inputs:emissive_color_texture = @@ (
+                    colorSpace = "auto"
+                    customData = {
+                        asset default = @@
+                    }
+                    displayGroup = "Emissive"
+                    displayName = "Emissive Color map"
+                    doc = "The emissive color texture"
+                    hidden = false
+                )
+                float inputs:emissive_intensity = 40 (
+                    customData = {
+                        float default = 40
+                    }
+                    displayGroup = "Emissive"
+                    displayName = "Emissive Intensity"
+                    doc = "Intensity of the emission"
+                    hidden = false
+                )
+                asset inputs:emissive_mask_texture = @@ (
+                    colorSpace = "raw"
+                    customData = {
+                        asset default = @@
+                    }
+                    displayGroup = "Emissive"
+                    displayName = "Emissive Mask map"
+                    doc = "The texture masking the emissive color"
+                    hidden = false
+                )
+                bool inputs:enable_emission = 0 (
+                    customData = {
+                        bool default = 0
+                    }
+                    displayGroup = "Emissive"
+                    displayName = "Enable Emission"
+                    doc = "Enables the emission of light from the material"
+                    hidden = false
+                )
+                bool inputs:enable_opacity = 0 (
+                    customData = {
+                        bool default = 0
+                    }
+                    displayGroup = "Opacity"
+                    displayName = "Enable Opacity"
+                    doc = "Enables the use of cutout opacity"
+                    hidden = false
+                )
+                bool inputs:enable_opacity_texture = 0 (
+                    customData = {
+                        bool default = 0
+                    }
+                    displayGroup = "Opacity"
+                    displayName = "Enable Opacity Texture"
+                    doc = "Enables or disables the usage of the opacity texture map"
+                    hidden = false
+                )
+                bool inputs:enable_ORM_texture = 0 (
+                    customData = {
+                        bool default = 0
+                    }
+                    displayGroup = "Reflectivity"
+                    displayName = "Enable ORM Texture"
+                    doc = "The ORM texture will be used to extract the Occlusion, Roughness and Metallic textures from R,G,B channels"
+                    hidden = false
+                )
+                bool inputs:flip_tangent_u = 0 (
+                    customData = {
+                        bool default = 0
+                    }
+                    displayGroup = "Normal"
+                    displayName = "Normal Map Flip U Tangent"
+                    hidden = false
+                )
+                bool inputs:flip_tangent_v = 1 (
+                    customData = {
+                        bool default = 1
+                    }
+                    displayGroup = "Normal"
+                    displayName = "Normal Map Flip V Tangent"
+                    hidden = false
+                )
+                float inputs:metallic_constant = 0 (
+                    customData = {
+                        float default = 0
+                        dictionary range = {
+                            float max = 1
+                            float min = 0
+                        }
+                    }
+                    displayGroup = "Reflectivity"
+                    displayName = "Metallic Amount"
+                    doc = "Metallic Material"
+                    hidden = false
+                )
+                asset inputs:metallic_texture = @@ (
+                    colorSpace = "raw"
+                    customData = {
+                        asset default = @@
+                    }
+                    displayGroup = "Reflectivity"
+                    displayName = "Metallic Map"
+                    hidden = false
+                )
+                float inputs:metallic_texture_influence = 0 (
+                    customData = {
+                        float default = 0
+                        dictionary range = {
+                            float max = 1
+                            float min = 0
+                        }
+                    }
+                    displayGroup = "Reflectivity"
+                    displayName = "Metallic Map Influence"
+                    doc = "Blends between the constant value and the lookup of the metallic texture"
+                    hidden = false
+                )
+                asset inputs:normalmap_texture = @@ (
+                    colorSpace = "raw"
+                    customData = {
+                        asset default = @@
+                    }
+                    displayGroup = "Normal"
+                    displayName = "Normal Map"
+                    hidden = false
+                )
+                float inputs:opacity_constant = 1 (
+                    customData = {
+                        float default = 1
+                        dictionary range = {
+                            float max = 1
+                            float min = 0
+                        }
+                    }
+                    displayGroup = "Opacity"
+                    displayName = "Opacity Amount"
+                    doc = "Opacity value between 0 and 1, when Opacity Map is not valid"
+                    hidden = false
+                )
+                int inputs:opacity_mode = 1 (
+                    customData = {
+                        int default = 1
+                    }
+                    displayGroup = "Opacity"
+                    displayName = "Opacity Mono Source"
+                    doc = "Determines how to lookup opacity from the supplied texture. mono_alpha, mono_average, mono_luminance, mono_maximum"
+                    hidden = false
+                    renderType = "::base::mono_mode"
+                    sdrMetadata = {
+                        string __SDR__enum_value = "mono_average"
+                        string options = "mono_alpha:0|mono_average:1|mono_luminance:2|mono_maximum:3"
+                    }
+                )
+                asset inputs:opacity_texture = @@ (
+                    colorSpace = "raw"
+                    customData = {
+                        asset default = @@
+                    }
+                    displayGroup = "Opacity"
+                    displayName = "Opacity Map"
+                    hidden = false
+                )
+                float inputs:opacity_threshold = 0 (
+                    customData = {
+                        float default = 0
+                        dictionary range = {
+                            float max = 1
+                            float min = 0
+                        }
+                    }
+                    displayGroup = "Opacity"
+                    displayName = "Opacity Threshold"
+                    doc = "If 0, use fractional opacity values 'as is'; if > 0, remap opacity values to 1 when >= threshold and to 0 otherwise"
+                    hidden = false
+                )
+                asset inputs:ORM_texture = @@ (
+                    colorSpace = "raw"
+                    customData = {
+                        asset default = @@
+                    }
+                    displayGroup = "Reflectivity"
+                    displayName = "ORM Map"
+                    doc = "Texture that has Occlusion, Roughness and Metallic maps stored in their respective R, G and B channels"
+                    hidden = false
+                )
+                bool inputs:project_uvw = 0 (
+                    customData = {
+                        bool default = 0
+                    }
+                    displayGroup = "UV"
+                    displayName = "Enable Project UVW Coordinates"
+                    doc = "When enabled, UV coordinates will be generated by projecting them from a coordinate system"
+                    hidden = false
+                )
+                float inputs:reflection_roughness_constant = 0.333 (
+                    customData = {
+                        float default = 0.5
+                        dictionary range = {
+                            float max = 1
+                            float min = 0
+                        }
+                    }
+                    displayGroup = "Reflectivity"
+                    displayName = "Roughness Amount"
+                    doc = "Higher roughness values lead to more blurry reflections"
+                    hidden = false
+                )
+                float inputs:reflection_roughness_texture_influence = 0 (
+                    customData = {
+                        float default = 0
+                        dictionary range = {
+                            float max = 1
+                            float min = 0
+                        }
+                    }
+                    displayGroup = "Reflectivity"
+                    displayName = "Roughness Map Influence"
+                    doc = "Blends between the constant value and the lookup of the roughness texture"
+                    hidden = false
+                )
+                asset inputs:reflectionroughness_texture = @@ (
+                    colorSpace = "raw"
+                    customData = {
+                        asset default = @@
+                    }
+                    displayGroup = "Reflectivity"
+                    displayName = "Roughness Map"
+                    hidden = false
+                )
+                float inputs:specular_level = 0.5 (
+                    customData = {
+                        float default = 0.5
+                        dictionary soft_range = {
+                            float max = 1
+                            float min = 0
+                        }
+                    }
+                    displayGroup = "Reflectivity"
+                    displayName = "Specular"
+                    doc = "The specular level (intensity) of the material"
+                    hidden = false
+                )
+                float inputs:texture_rotate = 0 (
+                    customData = {
+                        float default = 0
+                    }
+                    displayGroup = "UV"
+                    displayName = "Texture Rotate"
+                    doc = "Rotates angle of texture in degrees."
+                    hidden = false
+                )
+                float2 inputs:texture_scale = (0.5, 0.5) (
+                    customData = {
+                        float2 default = (1, 1)
+                    }
+                    displayGroup = "UV"
+                    displayName = "Texture Tiling"
+                    doc = "Controls the repetition of the texture."
+                    hidden = false
+                )
+                float2 inputs:texture_translate = (0, 0) (
+                    customData = {
+                        float2 default = (0, 0)
+                    }
+                    displayGroup = "UV"
+                    displayName = "Texture Translate"
+                    doc = "Controls position of texture."
+                    hidden = false
+                )
+                int inputs:uv_space_index = 0 (
+                    customData = {
+                        int default = 0
+                        dictionary range = {
+                            int max = 3
+                            int min = 0
+                        }
+                    }
+                    displayGroup = "UV"
+                    displayName = "UV Space Index"
+                    doc = "UV Space Index."
+                    hidden = false
+                )
+                bool inputs:world_or_object = 0 (
+                    customData = {
+                        bool default = 0
+                    }
+                    displayGroup = "UV"
+                    displayName = "Enable World Space"
+                    doc = "When enabled, uses world space for projection, otherwise object space is used"
+                    hidden = false
+                )
+                token outputs:out (
+                    renderType = "material"
+                )
+            }
+        }
+
+        def Material "Oak_Planks"
+        {
+            token outputs:mdl:displacement.connect = </Environment/Looks/Oak_Planks/Shader.outputs:out>
+            token outputs:mdl:surface.connect = </Environment/Looks/Oak_Planks/Shader.outputs:out>
+            token outputs:mdl:volume.connect = </Environment/Looks/Oak_Planks/Shader.outputs:out>
+
+            def Shader "Shader"
+            {
+                uniform token info:implementationSource = "sourceAsset"
+                uniform asset info:mdl:sourceAsset = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Materials/Base/Wood/Oak_Planks.mdl@
+                uniform token info:mdl:sourceAsset:subIdentifier = "Oak_Planks"
+                token outputs:out (
+                    renderType = "material"
+                )
+            }
+        }
+    }
+
+    def Mesh "ground" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxConvexHullCollisionAPI", "PhysicsMeshCollisionAPI"]
+    )
+    {
+        float3[] extent = [(-1400, -1400, 0), (1400, 1400, 0)]
+        int[] faceVertexCounts = [4]
+        int[] faceVertexIndices = [0, 1, 3, 2]
+        rel material:binding = </Environment/Looks/Oak_Planks> (
+            bindMaterialAs = "strongerThanDescendants"
+        )
+        normal3f[] normals = [(0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1)] (
+            interpolation = "faceVarying"
+        )
+        uniform token physics:approximation = "convexHull"
+        bool physics:collisionEnabled = 1
+        int physxConvexHullCollision:hullVertexLimit = 8
+        point3f[] points = [(-700, -700, 0), (700, -700, 0), (-700, 700, 0), (700, 700, 0)]
+        bool primvars:doNotCastShadows = 0
+        bool primvars:isMatteObject = 0
+        float2[] primvars:st = [(0, 0), (14, 0), (14, 14), (0, 14)] (
+            interpolation = "faceVarying"
+        )
+        uniform token subdivisionScheme = "none"
+        token visibility = "inherited"
+        double3 xformOp:rotateXYZ = (0, -90, -90)
+        double3 xformOp:scale = (0.01, 0.01, 0.01)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+    }
+}
+
+over "OmniverseKit_Persp"
+{
+    float3 xformOp:rotateXYZ = (161, -67, 180)
+    double3 xformOp:translate = (-31, 93, 61)
+}
+
+def "root"
+{
+    def Camera "camera"
+    {
+        float3 xformOp:rotateXYZ = (-15, 60, 45)
+        double3 xformOp:translate = (1.5, 1.5, 1.5)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ"]
+    }
+}
+

@@ -1,0 +1,8 @@
+# exported by https://3dviewer.net
+newmtl _Broccoli:brocolliSG
+Kd 0 0 0
+d 1
+Ka 0 0 0
+Ks 0 0.011764705882352941 0
+Ns 256
+map_Kd broccoliC.jpg
