@@ -178,22 +178,22 @@ Here are the interfaces for each environment:
 - ``daxbench/core/envs/unfold_cloth3_env.py``: Same as ``fold_cloth1_env.py``.
 - ``daxbench/core/envs/pour_water_env.py``: Focus on the black opencv image
   window with name ``control pad`` and use the keyboard to control the bowl.
-    + ``w``: Forward.
-    + ``s``: Backward.
-    + ``a``: Left.
-    + ``d``: Right.
-    + ``shift``: Tile towards the right.
-    + ``tab``: Tile towards the left.
-    + ``enter``: Quit.
+  + ``w``: Forward.
+  + ``s``: Backward.
+  + ``a``: Left.
+  + ``d``: Right.
+  + ``shift``: Tile towards the right.
+  + ``tab``: Tile towards the left.
+  + ``enter``: Quit.
 - ``daxbench/core/envs/pour_soup_env.py``: Same as ``pour_water_env.py``.
 - ``daxbench/core/envs/whip_rope_env.py``: Focus on the black opencv image
   window with name ``control pad`` and use the keyboard to control the rope.
-    + ``w``: Forward.
-    + ``s``: Backward.
-    + ``a``: Left.
-    + ``d``: Right.
-    + ``shift``: Downward.
-    + ``tab``: Upward.
+  + ``w``: Forward.
+  + ``s``: Backward.
+  + ``a``: Left.
+  + ``d``: Right.
+  + ``shift``: Downward.
+  + ``tab``: Upward.
 
 
 Environment Configuration
