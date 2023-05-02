@@ -10,10 +10,10 @@ build:
   os: ubuntu-20.04
   tools:
     python: mambaforge-4.10
-  jobs:
-    post_install:
-      - python -m pip install --upgrade pip setuptools
-      - python -m pip install --no-build-isolation --editable .
+  # jobs:
+  #  post_install:
+  #    - python -m pip install --upgrade pip setuptools
+  #    - python -m pip install --no-build-isolation --editable .
 
 # Optionally declare the Python requirements required to build your docs
 conda:
