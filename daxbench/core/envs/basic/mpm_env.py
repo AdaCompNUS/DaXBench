@@ -197,6 +197,12 @@ class MPMEnv:
         self.state = self.simulator.reset_jax(state)
         self.init_state = copy.deepcopy(self.state)
 
+        num_particles = self.state.x.shape[-2]
+        if self.goal is not None and num_particles != self.goal.shape[-2]:
+            # resample goal to match the number of particles
+            idx_list_from_goal = np.random.choice(self.goal.shape[-2], num_particles, replace=True)
+            self.goal = self.goal[idx_list_from_goal]
+
     def create_mesh_for_render(self, size):
         boxf_trimesh = trimesh.creation.box(extents=size[[0, 2, 1]] * 2)
         boxf_face_colors = np.random.uniform(size=boxf_trimesh.faces.shape)

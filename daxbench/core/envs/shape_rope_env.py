@@ -39,9 +39,12 @@ class DefaultConf:
     """
     ground_friction: float = 0.9
     n_grid: int = 128
+    # n_grid: int = 100 decrease grid size to speed up
     dt: float = 0.5e-4
+    # dt: float = 1.0e-4 # increase dt to speed up
     primitive_action_steps = 30
     primitive_action_duration = 0.2  # seconds
+    # primitive_action_duration = 0.1  # seconds.  decrease duration to speed up
     steps = int(primitive_action_duration / primitive_action_steps / dt)  # internal steps
     E: float = 100
     nu: float = 0.1
@@ -76,7 +79,8 @@ class ShapeRopeEnv(MPMEnv):
         super().__init__(conf, batch_size, max_steps, seed, self.focus_computation)
         self.aux_reward = aux_reward
         self.renderer = ParticlePyRenderer()
-        self.observation_size = 3540
+        self.observation_size = None  # to be set in reset
+        self.reset(self.simulator.key_global)
 
     @staticmethod
     @jax.vmap
@@ -171,7 +175,10 @@ class ShapeRopeEnv(MPMEnv):
         self.initialize_after_adding_particle_primitives(state)
 
         self.random_push(step=2)
-        return self.get_obs(self.state), self.state
+        obs = self.get_obs(self.state)
+        self.observation_size = obs.shape[-1]
+
+        return obs, self.state
 
     def collect_goal(self):
         assert self.batch_size == 1

@@ -316,7 +316,7 @@ def train(
         )
         t = time.time()
 
-        if it % args.eval_freq == 0:
+        if it % args.eval_freq == 0 and it > 0:
             _, reward_list = eval_policy(
                 it, training_state, eval_first_state, key_debug
             )
