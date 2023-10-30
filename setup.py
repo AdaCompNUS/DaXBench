@@ -59,6 +59,7 @@ setup(
         'typer',
         # 'jaxlib==0.3.14',
         # 'jax==0.3.14',
+        'protobuf==3.20.1',
         'flax',
         'brax==0.0.13',
         'gym>=0.25,<0.26',

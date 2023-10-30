@@ -1,6 +1,6 @@
 """DaxBench: benchmarking deformable object Manipulation with Differentiable Physics."""
 
-__version__ = '0.0.0'
+__version__ = '0.0.1'
 __license__ = 'Apache License, Version 2.0'
 __author__ = 'DaxBench Contributors'
 __release__ = False
