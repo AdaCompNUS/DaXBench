@@ -102,8 +102,8 @@ manipulation, covering planning, imitation learning, and reinforcement learning.
     </tr>
     <tr>
       <td> :heavy_check_mark: </td>
-      <td>  </td>
-      <td>  </td>
+      <td> :heavy_check_mark: </td>
+      <td> :heavy_check_mark: </td>
       <td>  </td>
       <td>  </td>
       <td>  </td>
